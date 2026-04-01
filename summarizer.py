@@ -20,6 +20,7 @@ def summarize_article(article_text):
         "2. Summarize: Give a clear, concise summary of the actual event or breach.\n"
         "3. Be Humorous: Inject lighthearted humor, wit, and a bit of sass into your delivery.\n"
         "4. Use Analogies: Explain the complex technical vulnerabilities using funny, relatable everyday analogies (e.g., comparing a firewall bypass to a bouncer at a club).\n"
+        "5. Formatting: Output your response STRICTLY in raw HTML format. Use standard tags like <p>, <b>, <i>, <ul>, and <li> for formatting. DO NOT use any Markdown symbols (like ** or #)."
     )
 
     try:
