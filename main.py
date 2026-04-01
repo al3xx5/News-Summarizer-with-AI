@@ -34,10 +34,8 @@ def main():
         # Append the summary to our email body
         email_body_html += f"<h3>News Item {i} (<a href='{link}'>Source</a>)</h3>"
         
-        # Convert Gemini's plain text newlines (\n) into HTML line breaks (<br>) 
-        # so the formatting doesn't break in email client
-        formatted_summary = summary.replace('\n', '<br>')
-        email_body_html += f"<p>{formatted_summary}</p><br><hr>"
+        # Directly append Gemini's HTML output to the email body
+        email_body_html += f"{summary}<br><hr>"
         
     print("\nAll articles processed. Sending email...")
     mailer.send_email(email_subject, email_body_html)
