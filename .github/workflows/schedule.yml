@@ -2,7 +2,6 @@ name: Daily News Summarizer
 
 on:
   schedule:
-    # This cron syntax runs the script at 12:00 PM UTC every day (8:00 AM EDT)
     - cron: '0 2 * * *'
 
   workflow_dispatch: 
@@ -27,6 +26,7 @@ jobs:
 
       - name: Run the main script
         env:
+          TZ: 'America/Chicago'
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
