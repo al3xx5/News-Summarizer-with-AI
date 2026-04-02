@@ -3,16 +3,17 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 import config
+import ast
 
 def send_email(subject, body_html):
-    sender_email = config.EMAIL_ADDRESS
-    receiver_email = config.EMAIL_ADDRESS 
+    email_list = ast.literal_eval(config.EMAIL_ADDRESS)
+    sender_email = email_list[0]
     password = config.EMAIL_APP_PASSWORD
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
     msg["From"] = sender_email
-    msg["To"] = receiver_email
+    msg["To"] = ""
 
     part = MIMEText(body_html, "html")
     msg.attach(part)
@@ -24,7 +25,7 @@ def send_email(subject, body_html):
         
         server.login(sender_email, password)
         
-        server.sendmail(sender_email, receiver_email, msg.as_string())
+        server.sendmail(sender_email, email_list, msg.as_string())
         server.quit()
         
         print("Email sent successfully!")
