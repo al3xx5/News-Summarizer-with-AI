@@ -29,6 +29,8 @@ Add the following variables to your `.env` file to configure the application sec
 
 *   **GEMINI_API_KEY:** Your generated API key from Google AI Studio.
 *   **EMAIL_ADDRESS:** The Gmail address that will send and receive the daily summaries.
+    * Should be configured as a list (e.g. `["YOUR_EMAIL", "OTHER_EMAIL"]`)
+    * Make sure to have a space between the comma and other email if providing more than 1 email in list
 *   **EMAIL_APP_PASSWORD:** The 16-character App Password generated from your Google Account security settings.
 
 ## Usage
